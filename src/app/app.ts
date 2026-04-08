@@ -1,12 +1,12 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component } from '@angular/core';
+import { Clientes } from './pages/clientes/clientes';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [Clientes],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
-  protected readonly title = signal('crm-juridico-front');
+  title = 'crm-juridico-front';
 }

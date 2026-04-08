@@ -1,0 +1,202 @@
+<div class="contenedor">
+  <h1>Registro de clientes</h1>
+  <p class="descripcion">
+    Registro y visualización de clientes del consultorio jurídico.
+  </p>
+
+  <div *ngIf="mensajeExito" class="alerta exito">
+    {{ mensajeExito }}
+  </div>
+
+  <div *ngIf="mensajeError" class="alerta error">
+    {{ mensajeError }}
+  </div>
+
+  <div class="card">
+    <h2>Formulario de registro</h2>
+
+    <div class="grid">
+      <div class="campo">
+        <label>Tipo de documento</label>
+        <select [(ngModel)]="cliente.tipoDocumento" name="tipoDocumento">
+          <option value="">Seleccione</option>
+          <option value="CC">CC</option>
+          <option value="CE">CE</option>
+          <option value="Pasaporte">Pasaporte</option>
+          <option value="PPT">PPT</option>
+        </select>
+      </div>
+
+      <div class="campo">
+        <label>Número de documento</label>
+        <input [(ngModel)]="cliente.numeroDocumento" name="numeroDocumento" type="text">
+      </div>
+
+      <div class="campo">
+        <label>Nombres</label>
+        <input [(ngModel)]="cliente.nombres" name="nombres" type="text">
+      </div>
+
+      <div class="campo">
+        <label>Apellidos</label>
+        <input [(ngModel)]="cliente.apellidos" name="apellidos" type="text">
+      </div>
+
+      <div class="campo">
+        <label>Fecha de nacimiento</label>
+        <input [(ngModel)]="cliente.fechaNacimiento" name="fechaNacimiento" type="date">
+      </div>
+
+      <div class="campo">
+        <label>Género</label>
+        <select [(ngModel)]="cliente.genero" name="genero">
+          <option value="">Seleccione</option>
+          <option value="Masculino">Masculino</option>
+          <option value="Femenino">Femenino</option>
+          <option value="Otro">Otro</option>
+        </select>
+      </div>
+
+      <div class="campo">
+        <label>Estado civil</label>
+        <select [(ngModel)]="cliente.estadoCivil" name="estadoCivil">
+          <option value="">Seleccione</option>
+          <option value="Soltero">Soltero</option>
+          <option value="Casado">Casado</option>
+          <option value="Unión Libre">Unión Libre</option>
+          <option value="Divorciado">Divorciado</option>
+          <option value="Viudo">Viudo</option>
+        </select>
+      </div>
+
+      <div class="campo campo-doble">
+        <label>Dirección de residencia</label>
+        <input [(ngModel)]="cliente.direccionResidencia" name="direccionResidencia" type="text">
+      </div>
+
+      <div class="campo">
+        <label>Ciudad / Municipio</label>
+        <input [(ngModel)]="cliente.ciudadMunicipio" name="ciudadMunicipio" type="text">
+      </div>
+
+      <div class="campo">
+        <label>Barrio</label>
+        <input [(ngModel)]="cliente.barrio" name="barrio" type="text">
+      </div>
+
+      <div class="campo">
+        <label>Teléfono principal</label>
+        <input [(ngModel)]="cliente.telefonoPrincipal" name="telefonoPrincipal" type="text">
+      </div>
+
+      <div class="campo">
+        <label>Teléfono secundario</label>
+        <input [(ngModel)]="cliente.telefonoSecundario" name="telefonoSecundario" type="text">
+      </div>
+
+      <div class="campo">
+        <label>Correo electrónico</label>
+        <input [(ngModel)]="cliente.correoElectronico" name="correoElectronico" type="email">
+      </div>
+
+      <div class="campo">
+        <label>Estrato socioeconómico</label>
+        <select [(ngModel)]="cliente.estratoSocioeconomico" name="estratoSocioeconomico">
+          <option value="">Seleccione</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="Sin Estrato">Sin Estrato</option>
+        </select>
+      </div>
+
+      <div class="campo">
+        <label>Ingresos mensuales</label>
+        <select [(ngModel)]="cliente.ingresosMensuales" name="ingresosMensuales">
+          <option value="">Seleccione</option>
+          <option value="Menos de 1 SMMLV">Menos de 1 SMMLV</option>
+          <option value="Entre 1 y 2 SMMLV">Entre 1 y 2 SMMLV</option>
+          <option value="Más de 2 SMMLV">Más de 2 SMMLV</option>
+        </select>
+      </div>
+
+      <div class="campo">
+        <label>Ocupación</label>
+        <select [(ngModel)]="cliente.ocupacion" name="ocupacion">
+          <option value="">Seleccione</option>
+          <option value="Empleado">Empleado</option>
+          <option value="Independiente">Independiente</option>
+          <option value="Desempleado">Desempleado</option>
+          <option value="Pensionado">Pensionado</option>
+          <option value="Estudiante">Estudiante</option>
+        </select>
+      </div>
+
+      <div class="campo">
+        <label>¿Población vulnerable?</label>
+        <select [(ngModel)]="cliente.esPoblacionVulnerable" name="esPoblacionVulnerable">
+          <option [ngValue]="false">No</option>
+          <option [ngValue]="true">Sí</option>
+        </select>
+      </div>
+
+      <div class="campo">
+        <label>Tipo población vulnerable</label>
+        <input [(ngModel)]="cliente.tipoPoblacionVulnerable" name="tipoPoblacionVulnerable" type="text">
+      </div>
+
+      <div class="campo">
+        <label>Estado usuario</label>
+        <select [(ngModel)]="cliente.estadoUsuario" name="estadoUsuario">
+          <option value="Activo">Activo</option>
+          <option value="Inactivo">Inactivo</option>
+          <option value="Vetado">Vetado</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="checkbox">
+      <input [(ngModel)]="cliente.aceptaHabeasData" name="aceptaHabeasData" type="checkbox" id="habeas">
+      <label for="habeas">Acepta Habeas Data</label>
+    </div>
+
+    <div class="acciones">
+      <button type="button" class="btn primario" (click)="guardarCliente()">Guardar</button>
+      <button type="button" class="btn secundario" (click)="limpiarFormulario()">Limpiar</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Listado de clientes</h2>
+
+    <div class="tabla-contenedor">
+      <table>
+        <thead>
+        <tr>
+          <th>ID</th>
+          <th>Documento</th>
+          <th>Nombres</th>
+          <th>Apellidos</th>
+          <th>Teléfono</th>
+          <th>Correo</th>
+          <th>Estado</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let item of clientes">
+          <td>{{ item.idCliente }}</td>
+          <td>{{ item.numeroDocumento }}</td>
+          <td>{{ item.nombres }}</td>
+          <td>{{ item.apellidos }}</td>
+          <td>{{ item.telefonoPrincipal }}</td>
+          <td>{{ item.correoElectronico }}</td>
+          <td>{{ item.estadoUsuario }}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
