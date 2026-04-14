@@ -20,6 +20,7 @@ export class Clientes implements OnInit {
 
   documentoBusqueda = '';
   clienteEncontrado: Cliente | null = null;
+  detalleCliente: Cliente | null = null;
 
   cliente: Cliente = this.obtenerClienteVacio();
 
@@ -106,6 +107,34 @@ export class Clientes implements OnInit {
         }
       }
     });
+  }
+
+  verDetalle(idCliente?: number): void {
+    this.mensajeExito = '';
+    this.mensajeError = '';
+    this.detalleCliente = null;
+
+    if (!idCliente) {
+      this.mensajeError = 'No fue posible identificar el cliente.';
+      return;
+    }
+
+    this.clienteService.obtenerClientePorId(idCliente).subscribe({
+      next: (data) => {
+        this.detalleCliente = data;
+      },
+      error: (error) => {
+        if (error?.error?.mensaje) {
+          this.mensajeError = error.error.mensaje;
+        } else {
+          this.mensajeError = 'No fue posible consultar el detalle del cliente.';
+        }
+      }
+    });
+  }
+
+  cerrarDetalle(): void {
+    this.detalleCliente = null;
   }
 
   limpiarBusqueda(): void {

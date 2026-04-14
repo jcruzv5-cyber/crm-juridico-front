@@ -212,6 +212,38 @@
     </div>
   </div>
 
+  <div class="card" *ngIf="detalleCliente">
+    <h2>Detalle del cliente</h2>
+
+    <div class="grid">
+      <div class="campo"><label>ID</label><input [value]="detalleCliente.idCliente" type="text" readonly></div>
+      <div class="campo"><label>Tipo de documento</label><input [value]="detalleCliente.tipoDocumento" type="text" readonly></div>
+      <div class="campo"><label>Número de documento</label><input [value]="detalleCliente.numeroDocumento" type="text" readonly></div>
+      <div class="campo"><label>Nombres</label><input [value]="detalleCliente.nombres" type="text" readonly></div>
+      <div class="campo"><label>Apellidos</label><input [value]="detalleCliente.apellidos" type="text" readonly></div>
+      <div class="campo"><label>Fecha de nacimiento</label><input [value]="detalleCliente.fechaNacimiento" type="text" readonly></div>
+      <div class="campo"><label>Género</label><input [value]="detalleCliente.genero" type="text" readonly></div>
+      <div class="campo"><label>Estado civil</label><input [value]="detalleCliente.estadoCivil" type="text" readonly></div>
+      <div class="campo campo-doble"><label>Dirección</label><input [value]="detalleCliente.direccionResidencia" type="text" readonly></div>
+      <div class="campo"><label>Ciudad / Municipio</label><input [value]="detalleCliente.ciudadMunicipio" type="text" readonly></div>
+      <div class="campo"><label>Barrio</label><input [value]="detalleCliente.barrio" type="text" readonly></div>
+      <div class="campo"><label>Teléfono principal</label><input [value]="detalleCliente.telefonoPrincipal" type="text" readonly></div>
+      <div class="campo"><label>Teléfono secundario</label><input [value]="detalleCliente.telefonoSecundario" type="text" readonly></div>
+      <div class="campo"><label>Correo</label><input [value]="detalleCliente.correoElectronico" type="text" readonly></div>
+      <div class="campo"><label>Estrato</label><input [value]="detalleCliente.estratoSocioeconomico" type="text" readonly></div>
+      <div class="campo"><label>Ingresos</label><input [value]="detalleCliente.ingresosMensuales" type="text" readonly></div>
+      <div class="campo"><label>Ocupación</label><input [value]="detalleCliente.ocupacion" type="text" readonly></div>
+      <div class="campo"><label>Población vulnerable</label><input [value]="detalleCliente.esPoblacionVulnerable ? 'Sí' : 'No'" type="text" readonly></div>
+      <div class="campo"><label>Tipo población vulnerable</label><input [value]="detalleCliente.tipoPoblacionVulnerable" type="text" readonly></div>
+      <div class="campo"><label>Estado usuario</label><input [value]="detalleCliente.estadoUsuario" type="text" readonly></div>
+      <div class="campo"><label>Fecha de registro</label><input [value]="detalleCliente.fechaRegistro" type="text" readonly></div>
+    </div>
+
+    <div class="acciones">
+      <button type="button" class="btn secundario" (click)="cerrarDetalle()">Cerrar detalle</button>
+    </div>
+  </div>
+
   <div class="card">
     <h2>Listado de clientes</h2>
 
@@ -226,6 +258,7 @@
           <th>Teléfono</th>
           <th>Correo</th>
           <th>Estado</th>
+          <th>Acciones</th>
         </tr>
         </thead>
         <tbody>
@@ -237,6 +270,11 @@
           <td>{{ item.telefonoPrincipal }}</td>
           <td>{{ item.correoElectronico }}</td>
           <td>{{ item.estadoUsuario }}</td>
+          <td>
+            <button type="button" class="btn primario" (click)="verDetalle(item.idCliente)">
+              Ver detalle
+            </button>
+          </td>
         </tr>
         </tbody>
       </table>
