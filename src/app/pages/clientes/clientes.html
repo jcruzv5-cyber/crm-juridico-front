@@ -170,6 +170,49 @@
   </div>
 
   <div class="card">
+    <h2>Consulta por número de documento</h2>
+
+    <div class="grid">
+      <div class="campo">
+        <label>Número de documento</label>
+        <input [(ngModel)]="documentoBusqueda" name="documentoBusqueda" type="text">
+      </div>
+    </div>
+
+    <div class="acciones">
+      <button type="button" class="btn primario" (click)="buscarPorDocumento()">Consultar</button>
+      <button type="button" class="btn secundario" (click)="limpiarBusqueda()">Limpiar búsqueda</button>
+    </div>
+
+    <div class="tabla-contenedor" *ngIf="clienteEncontrado">
+      <table>
+        <thead>
+        <tr>
+          <th>ID</th>
+          <th>Documento</th>
+          <th>Nombres</th>
+          <th>Apellidos</th>
+          <th>Teléfono</th>
+          <th>Correo</th>
+          <th>Estado</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>{{ clienteEncontrado.idCliente }}</td>
+          <td>{{ clienteEncontrado.numeroDocumento }}</td>
+          <td>{{ clienteEncontrado.nombres }}</td>
+          <td>{{ clienteEncontrado.apellidos }}</td>
+          <td>{{ clienteEncontrado.telefonoPrincipal }}</td>
+          <td>{{ clienteEncontrado.correoElectronico }}</td>
+          <td>{{ clienteEncontrado.estadoUsuario }}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
     <h2>Listado de clientes</h2>
 
     <div class="tabla-contenedor">
