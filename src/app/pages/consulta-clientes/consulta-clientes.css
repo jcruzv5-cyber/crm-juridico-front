@@ -1,0 +1,29 @@
+.encabezado-qreport {
+  background: #f1f3f5;
+  border-bottom: 1px solid #dcdfe3;
+}
+
+.tabla-qreport thead th {
+  background: #e9ecef;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.input-filtro {
+  min-width: 280px;
+}
+
+.badge-estado {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.badge-estado.inactivo {
+  background: #fee2e2;
+  color: #991b1b;
+}

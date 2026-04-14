@@ -6,6 +6,7 @@ import { ClienteService } from '../../services/cliente';
 
 @Component({
   selector: 'app-clientes',
+  standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './clientes.html',
   styleUrl: './clientes.css'
@@ -14,6 +15,7 @@ export class Clientes implements OnInit {
   private clienteService = inject(ClienteService);
 
   clientes: Cliente[] = [];
+  cargandoLista = false;
 
   mensajeExito = '';
   mensajeError = '';
@@ -50,12 +52,16 @@ export class Clientes implements OnInit {
   }
 
   cargarClientes(): void {
+    this.cargandoLista = true;
+
     this.clienteService.listarClientes().subscribe({
       next: (data) => {
         this.clientes = data;
+        this.cargandoLista = false;
       },
       error: () => {
         this.mensajeError = 'No fue posible cargar la lista de clientes.';
+        this.cargandoLista = false;
       }
     });
   }
